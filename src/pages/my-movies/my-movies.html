@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button menuToggle ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>my-movies</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title>My favourite movies</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <p> Go to movie lit page for selection</p>
+      <button icon-left ion-button full (click)="goToMoviesList()">
+        <ion-icon name="search"> </ion-icon>
+          Explore Movies
+      </button>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
