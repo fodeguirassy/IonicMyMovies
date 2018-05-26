@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IMovie } from '../../Models/IMovie';
+import { MovieDetailsPage } from '../movie-details/movie-details';
+import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
+
 
 /**
  * Generated class for the MovieListPage page.
@@ -15,11 +19,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MovieListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  movies: IMovie[] 
+
+  constructor(private navCtrl: NavController, 
+    private navParams: NavParams,
+    private movieApi: MovieServiceProvider) {
+    
+      movieApi.getMovies().subscribe(data => {
+        this.movies = data
+      })
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MovieListPage');
   }
 
+  goToMovieDetails(movie: IMovie) {
+    this.navCtrl.push(MovieDetailsPage, movie)
+  }
+  
 }

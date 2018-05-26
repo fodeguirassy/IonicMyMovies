@@ -12,7 +12,13 @@
 
 </ion-header>
 
-
 <ion-content padding>
+  <ion-grid *ngIf="movies">
+    <ion-row>
+      <ion-col col-4 *ngFor="let m of movies">
+          <img [src]="m.poster_path" (click)="goToMovieDetails(m)"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

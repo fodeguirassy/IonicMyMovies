@@ -6,13 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>movie-details</ion-title>
+  <ion-navbar color="primary">
+    <ion-title *ngIf="movie">{{movie.title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button incon-only style="font-size: 1.7em" (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'star' : 'star-outline'"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding *ngIf="movie">
+  <ion-card>
+      <img [src]="movie.poster_path" />
+    <ion-card-header>
+        <h2>
+            Overview
+            <ion-badge color="secondary"> {{ movie.popularity }}</ion-badge>
+        </h2>
+    </ion-card-header>
+    <ion-card-content>
+        <p>
+          {{ movie.overview }}
+        </p>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content padding>
 
 </ion-content>

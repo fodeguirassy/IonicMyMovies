@@ -12,6 +12,11 @@ import { MovieServiceProvider } from '../providers/movie-service/movie-service';
 import { MyMoviesPage } from '../pages/my-movies/my-movies';
 import { MovieListPage } from '../pages/movie-list/movie-list';
 import { MovieDetailsPage } from '../pages/movie-details/movie-details';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SpaceXProvider } from '../providers/space-x/space-x';
+import { SpaceXPage } from '../pages/space-x/space-x';
+import { Storage, IonicStorageModule } from '@ionic/storage'
+import { FavoriteMovieProvider } from '../providers/favorite-movie/favorite-movie';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,14 @@ import { MovieDetailsPage } from '../pages/movie-details/movie-details';
     ListPage,
     MyMoviesPage,
     MovieListPage,
-    MovieDetailsPage
+    MovieDetailsPage,
+    SpaceXPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,13 +41,16 @@ import { MovieDetailsPage } from '../pages/movie-details/movie-details';
     ListPage,
     MyMoviesPage,
     MovieListPage,
-    MovieDetailsPage
+    MovieDetailsPage,
+    SpaceXPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieServiceProvider
+    MovieServiceProvider,
+    SpaceXProvider,
+    FavoriteMovieProvider
   ]
 })
 export class AppModule {}

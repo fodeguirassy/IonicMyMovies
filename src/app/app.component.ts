@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MyMoviesPage } from '../pages/my-movies/my-movies';
 import { MovieListPage } from '../pages/movie-list/movie-list';
+import { SpaceXPage } from '../pages/space-x/space-x';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,9 +27,10 @@ export class MyApp {
       //{ title: 'Home', component: HomePage },
       //{ title: 'List', component: ListPage },
       { title: 'Home', component: MovieListPage },
-      { title: 'My Movies', component: MovieListPage }
+      { title: 'My Movies', component: MovieListPage },
+      { title: 'SPaceX', component: SpaceXPage }
     ];
-
+    
   }
 
   initializeApp() {
